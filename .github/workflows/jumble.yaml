@@ -14,6 +14,7 @@ jobs:
 
       - name: Install and Build
         run: |
+          npm install -g pnpm
           pnpm i
           pnpm -F web i
           pnpm -F web build
