@@ -56,6 +56,7 @@ const list = ref<IListItem[]>([
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
   &::before {
     content: '';
     position: absolute;

@@ -29,7 +29,7 @@ const textMap = ref({
   </div>
 </template>
 
-<style lang="less">
+<style lang="less" scoped>
 .page {
   padding: 40px;
   display: flex;
