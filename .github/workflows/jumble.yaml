@@ -23,5 +23,5 @@ jobs:
         with:
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
           branch: gh-pages # The branch the action should deploy to.
-          folder: .
+          folder: ./apps/web/dist
           CLEAN: true
