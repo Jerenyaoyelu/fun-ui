@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import BounceCube from './BounceCube.vue';
-import infinite from './infinite.vue';
+import BounceCube from '@/components/BounceCube.vue';
+import infinite from '@/components/infinite.vue';
 import Wrapper from '@/components/Wrapper.vue';
 import { ref } from 'vue';
 

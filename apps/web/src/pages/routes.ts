@@ -1,8 +1,9 @@
 import * as VueRouter from 'vue-router';
 
-import Home from '@/pages/Home/index.vue';
-import Loading from '@/pages/loading/index.vue';
-import Hover from '@/pages/hover/index.vue';
+const Home = () => import('@/pages/Home/index.vue');
+const Loading = () => import('@/pages/loading/index.vue');
+const Hover = () => import('@/pages/hover/index.vue');
+const CoolList = () => import('@/pages/hover/CoolList.vue');
 
 const routes = [
   {
@@ -16,6 +17,13 @@ const routes = [
   {
     path: '/hover',
     component: Hover,
+    children: [
+      {
+        path: 'cool-list', // 嵌套路由开头不能带/
+        name: 'CoolList',
+        component: CoolList,
+      },
+    ],
   },
 ];
 

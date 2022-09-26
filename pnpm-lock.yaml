@@ -16,6 +16,7 @@ importers:
 
   apps/web:
     specifiers:
+      '@fun-ui/core': '*'
       '@vitejs/plugin-vue': ^3.1.0
       less: ^4.1.3
       lodash: ^4.17.21
@@ -29,6 +30,7 @@ importers:
       vue: registry.npmmirror.com/vue/3.2.39
       vue-router: registry.npmmirror.com/vue-router/4.1.5_vue@3.2.39
     devDependencies:
+      '@fun-ui/core': link:../../packages/core
       '@vitejs/plugin-vue': registry.npmmirror.com/@vitejs/plugin-vue/3.1.0_vite@3.1.3+vue@3.2.39
       less: registry.npmmirror.com/less/4.1.3
       typescript: registry.npmmirror.com/typescript/4.8.3
