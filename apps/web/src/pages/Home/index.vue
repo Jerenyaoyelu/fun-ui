@@ -1,58 +1,96 @@
 <script setup lang="ts">
-import CardItemVue, { IDataType } from '@/components/CardItem.vue';
+import { useRouter } from 'vue-router';
 import { ref } from 'vue';
 
-const dataList = ref<IDataType[]>([
-  {
-    color: 'red',
-    text: '1',
-  },
-  {
-    color: 'yellow',
-    text: '2',
-  },
-  {
-    color: 'blue',
-    text: '3',
-  },
-  {
-    color: 'grey',
-    text: '4',
-  },
-  {
-    color: 'green',
-    text: '5',
-  },
-  {
-    color: 'lightyellow',
-    text: '6',
-  },
-  {
-    color: 'lightblue',
-    text: '7',
-  },
-  {
-    color: 'lightgrey',
-    text: '8',
-  },
-  {
-    color: 'lightgreen',
-    text: '9',
-  },
-]);
+const router = useRouter();
+const offset = ref<number>(0);
+
+window.addEventListener('scroll', () => {
+  offset.value = window.scrollY;
+});
 </script>
 
 <template>
-  <div class="container">
-    <CardItemVue v-for="d in dataList" :data="d" />
+  <div class="fun-ui__page">
+    <div class="fun-ui__desc">A set of fun & fancy UI on Vuejs 3</div>
+    <div class="fun-ui__clip" :style="{ '--offset': `${offset}px` }">FunUI</div>
+    <div class="fun-ui__showcase">
+      <button
+        @click="
+          () => {
+            router.push({
+              name: 'Loading',
+            });
+          }
+        "
+      >
+        Loading
+      </button>
+      <button
+        @click="
+          () => {
+            router.push({
+              name: 'CoolList',
+            });
+          }
+        "
+      >
+        Hover
+      </button>
+    </div>
+    <div class="fun-ui__showcase"></div>
   </div>
 </template>
 
 <style lang="less" scoped>
-.container {
+.fun-ui__page {
+  position: relative;
+
+  .fun-ui__desc {
+    position: absolute;
+    top: 150px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    font-weight: 500;
+    font-size: 30px;
+  }
+}
+
+.fun-ui__clip {
+  background-image: url('@/assets/image/home-clip-bg.jpg');
+  width: 100%;
+  font-size: 300px;
+  height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: calc(50% + var(--offset)) calc(50% + var(--offset));
+  font-weight: 900;
   display: flex;
-  width: 400px;
-  flex-wrap: wrap;
-  margin: 200px auto;
+  justify-content: center;
+  align-items: center;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  overflow: hidden;
+  position: relative;
+
+  &::before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    background-image: inherit;
+    background-size: cover;
+    background-repeat: no-repeat;
+    left: 0;
+    top: 0;
+    position: absolute;
+    background-position: 50% 50%;
+    transform: translateY(var(--offset));
+    z-index: -10;
+  }
+}
+.fun-ui__showcase {
+  height: 100vh;
 }
 </style>

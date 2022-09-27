@@ -8,10 +8,12 @@ const CoolList = () => import('@/pages/hover/CoolList.vue');
 const routes = [
   {
     path: '/',
+    name: 'Home',
     component: Home,
   },
   {
     path: '/loading',
+    name: 'Loading',
     component: Loading,
   },
   {
