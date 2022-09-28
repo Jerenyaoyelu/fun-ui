@@ -41,7 +41,7 @@ const list = ref<IListItem[]>([
 </script>
 
 <template>
-  <div class="page-content">
+  <div class="fun-ui__page">
     <BoostList title="Beautifull girls in ranking" :list="list">
       <template v-slot:rank-icon>No.</template>
     </BoostList>
@@ -49,10 +49,10 @@ const list = ref<IListItem[]>([
 </template>
 
 <style lang="less" scoped>
-.page-content {
+.fun-ui__page {
   position: relative;
   overflow-x: hidden;
-  height: 100%;
+  height: calc(100vh - 60px);
   display: flex;
   justify-content: center;
   align-items: center;

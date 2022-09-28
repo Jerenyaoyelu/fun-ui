@@ -35,7 +35,18 @@ window.addEventListener('scroll', () => {
           }
         "
       >
-        Hover
+        cool list
+      </button>
+      <button
+        @click="
+          () => {
+            router.push({
+              name: 'HoverClose',
+            });
+          }
+        "
+      >
+        hover close show cards
       </button>
     </div>
     <div class="fun-ui__showcase"></div>

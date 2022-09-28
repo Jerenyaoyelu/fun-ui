@@ -14,4 +14,12 @@ export default defineConfig({
     ],
   },
   base: './',
+  // css: {
+  //   preprocessorOptions: {
+  //     less: {
+  //       charset: false,
+  //       additionalData: `@import "${path.resolve(__dirname, './src/global.less')}"`,
+  //     },
+  //   },
+  // },
 });

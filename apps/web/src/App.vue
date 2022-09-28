@@ -5,7 +5,7 @@ const router = useRouter();
 </script>
 
 <template>
-  <div>
+  <div class="fun-ui__layout">
     <div class="fun-ui__nav">
       <div
         @click="
@@ -26,6 +26,9 @@ const router = useRouter();
 </template>
 
 <style scoped lang="less">
+.fun-ui__layout {
+  padding-top: 60px;
+}
 .fun-ui__nav {
   position: fixed;
   top: 0;
