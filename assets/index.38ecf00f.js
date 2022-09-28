@@ -1,1 +1,0 @@
-import{d as o,c as _,j as t,o as s,e as n,k as c,_ as a}from"./index.289386f4.js";const r={class:"page"},d=o({__name:"index",setup(p){return n(),(i,u)=>{const e=c("router-view");return s(),_("div",r,[t(e)])}}});const m=a(d,[["__scopeId","data-v-d97c688e"]]);export{m as default};
