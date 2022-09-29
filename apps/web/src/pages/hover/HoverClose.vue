@@ -1,6 +1,7 @@
 /** 设计灵感来源： // https://codepen.io/akhil_001/pen/zoQdaO?editors=1100 */
 <script setup lang="ts">
-import CloseShowCard from '@/components/CloseShowCard.vue';
+import CarouselCard from '@/components/CarouselCard.vue';
+import CardContent from '@/components/CardContent.vue';
 import { ref } from 'vue';
 import Card1 from '@/assets/image/card-1.jpg';
 import Card2 from '@/assets/image/card-2.jpg';
@@ -20,11 +21,11 @@ const list = ref<any[]>([
 </script>
 <template>
   <div class="fun-ui__page">
-    <CloseShowCard v-for="(item, i) in list" :key="i">
-      <div class="fun-ui__card-content">
-        <img :src="item.img" alt="" />
-      </div>
-    </CloseShowCard>
+    <CarouselCard :data="list" :show-nums="3">
+      <template #item="item">
+        <CardContent :data="item" />
+      </template>
+    </CarouselCard>
     <div class="fun-ui__tips">
       <span>&lt;&lt;&lt;</span>
       hover the card
@@ -77,18 +78,6 @@ const list = ref<any[]>([
   100% {
     transform: translateX(0px);
     opacity: 0;
-  }
-}
-.fun-ui__card-content {
-  height: 100%;
-  text-align: center;
-  color: #333;
-  font-size: 30px;
-  font-weight: 600;
-  img {
-    object-fit: cover;
-    width: 100%;
-    height: 100%;
   }
 }
 </style>
