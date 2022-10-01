@@ -14,7 +14,7 @@ const textMap = ref({
 </script>
 
 <template>
-  <div class="page">
+  <div class="fun-ui__page">
     <Wrapper class="marginTop" title="Q弹的loading方块">
       <BounceCube />
     </Wrapper>
@@ -30,10 +30,11 @@ const textMap = ref({
 </template>
 
 <style lang="less" scoped>
-.page {
+.fun-ui__page {
   padding: 40px;
   display: flex;
   margin: 0 -20px;
+  background-color: #242424;
 }
 .marginTop {
   width: 420px;
