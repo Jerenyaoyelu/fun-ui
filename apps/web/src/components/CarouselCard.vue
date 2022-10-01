@@ -4,8 +4,9 @@ import { CSSProperties, ref, computed } from 'vue';
 interface ICardProps {
   width?: number;
   height?: number;
-  data: any[] | any;
+  data?: any[] | any;
   showNums?: number;
+  type?: 'carousel' | 'card';
 }
 
 enum ActionType {
@@ -22,8 +23,8 @@ const isEven = computed(() => {
   return props.showNums === undefined ? null : props.showNums % 2 === 0;
 });
 
-const isArray = computed(() => {
-  return Array.isArray(props.data);
+const isCarousel = computed(() => {
+  return props.type === 'carousel';
 });
 
 function getStyles(index: number) {
@@ -60,10 +61,10 @@ const hanldeClick = (type: number) => {
 
 <template>
   <div class="fun-ui__card-container">
-    <div v-if="isArray" class="fun-ui_carousel-arrow-left" @click="hanldeClick(ActionType.INCREASE)">&lt;</div>
+    <div v-if="isCarousel" class="fun-ui_carousel-arrow-left" @click="hanldeClick(ActionType.INCREASE)">&lt;</div>
     <div class="fun-ui__card" :style="{ '--width': `${width || 300}px`, '--height': `${height || 500}px` }">
-      <template v-if="isArray">
-        <div class="fun-ui__card-content-wrapper" :style="getStyles(i)" v-for="(item, i) in data" :key="i">
+      <template v-if="isCarousel">
+        <div class="fun-ui__card-content-wrapper" :style="getStyles(i)" v-for="(item, i) in data || []" :key="i">
           <slot name="item" v-bind="item"></slot>
         </div>
       </template>
@@ -73,7 +74,7 @@ const hanldeClick = (type: number) => {
         </div>
       </template>
     </div>
-    <div v-if="isArray" class="fun-ui_carousel-arrow-right" @click="hanldeClick(ActionType.DECREASE)">></div>
+    <div v-if="isCarousel" class="fun-ui_carousel-arrow-right" @click="hanldeClick(ActionType.DECREASE)">></div>
   </div>
 </template>
 

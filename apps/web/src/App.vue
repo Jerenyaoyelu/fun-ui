@@ -34,7 +34,7 @@ const router = useRouter();
   top: 0;
   left: 0;
   padding: 15px 15px;
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(0, 0, 0, 0.2);
   z-index: 999;
   width: 100%;
   .fun-ui__logo {

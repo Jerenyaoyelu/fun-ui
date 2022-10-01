@@ -21,10 +21,22 @@ const list = ref<any[]>([
 </script>
 <template>
   <div class="fun-ui__page">
-    <CarouselCard :data="list" :show-nums="3">
+    <h1>走马灯效果</h1>
+    <CarouselCard type="carousel" :data="list" :show-nums="3">
       <template #item="item">
         <CardContent :data="item" />
       </template>
+    </CarouselCard>
+    <div class="fun-ui__tips">
+      <span>&lt;&lt;&lt;</span>
+      hover the card
+      <span>>>></span>
+    </div>
+  </div>
+  <div class="fun-ui__page">
+    <h1>单张卡片效果</h1>
+    <CarouselCard>
+      <CardContent :data="list[0]" />
     </CarouselCard>
     <div class="fun-ui__tips">
       <span>&lt;&lt;&lt;</span>
@@ -41,6 +53,13 @@ const list = ref<any[]>([
   background: #eee;
   height: calc(100vh - 60px);
   position: relative;
+
+  h1 {
+    position: absolute;
+    color: #333;
+    font-weight: 600;
+    top: 10px;
+  }
   .fun-ui__tips {
     position: absolute;
     bottom: 80px;
